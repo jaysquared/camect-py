@@ -147,7 +147,7 @@ class Home:
         json = resp.json()
         if resp.status_code != 200:
             raise Error("Failed to snapshot camera: [%d](%s)" % (resp.status_code, json["err_msg"]))
-        return base64.b64decode(json["jpeg_data"])
+        return json
 
     def disable_alert(self, cam_ids: List[str], reason: str):
         """ Disable alerts for camera(s) or the home if "cam_ids" is empty.
